@@ -190,7 +190,7 @@ export default function Monitor() {
       }
       alertRef.current = alertNow;
 
-      historyRef.current = [...historyRef.current, { top, hit, alert: alertNow }].slice(-HISTORY_SIZE);
+      historyRef.current = [...historyRef.current, { top, hit }].slice(-HISTORY_SIZE);
     },
     [addLog],
   );
@@ -445,7 +445,6 @@ export default function Monitor() {
                 <li className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-healthy" aria-hidden />Healthy</li>
                 <li className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-alert" aria-hidden />Unhealthy</li>
                 <li className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-noise" aria-hidden />Background noise</li>
-                <li className="flex items-center gap-1.5"><span className="h-0.5 w-3 bg-alert" aria-hidden />Alert on</li>
               </ul>
             </div>
           </div>
@@ -556,13 +555,10 @@ function HistoryStrip({ history }: { history: Reading[] }) {
       className="flex h-9 gap-[2px]"
     >
       {Array.from({ length: empty }, (_, i) => (
-        <span key={`e${i}`} className="mb-[5px] flex-1 rounded-[2px] bg-subtle" />
+        <span key={`e${i}`} className="flex-1 rounded-[2px] bg-subtle" />
       ))}
       {history.map((r, i) => (
-        <span key={i} className="flex flex-1 flex-col gap-[2px]">
-          <span className={`flex-1 rounded-[2px] ${TICK_COLOR[r.top]}`} />
-          <span className={`h-[3px] rounded-[1px] ${r.alert ? "bg-alert" : "bg-transparent"}`} />
-        </span>
+        <span key={i} className={`flex-1 rounded-[2px] ${TICK_COLOR[r.top]}`} />
       ))}
     </div>
   );

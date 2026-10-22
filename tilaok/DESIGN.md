@@ -156,7 +156,7 @@ A neutral grey scale for the whole interface, plus four state families that each
 
 ### Secondary (state families)
 - **Flock Green** (healthy, with healthy-bg wash and healthy-line border): healthy status band and verdict, healthy bars, ticks, swatches, "Alert cleared" log dots, and the "OK" in the wordmark. Also tints text selection at 28%.
-- **Respiratory Red** (alert, with alert-bg wash and alert-line border): the alert band and verdict, unhealthy bars and ticks, the alert underline in the history strip, alert log text, and a non-zero Alerts count in the report.
+- **Respiratory Red** (alert, with alert-bg wash and alert-line border): the alert band and verdict, unhealthy bars and ticks, alert log text, and a non-zero Alerts count in the report.
 - **Caution Amber** (warn, with warn-bg wash and warn-line border): "a few unhealthy sounds, no alert" verdicts and the could-not-start error state. Never used for chrome.
 - **Static Grey** (noise): background-noise bars, ticks and swatches, and start/stop log dots. A cool grey so it reads as a class, not as disabled text.
 
@@ -250,7 +250,7 @@ Plain and decisive; one primary per surface.
 The answer to "is the flock OK?". Full width, 12px corners, the tone's wash and line, a 26px tone icon, the Display status line in the tone's ink, a muted detail sentence, and Numeral stats (timer, unhealthy sounds in the last hour) aligned right. After Stop it carries the session verdict. The idle tone is plain Paper with ink text.
 
 ### History Strip (signature)
-Sixty equal ticks, 2px apart, 36px tall, one per reading, filled with the class colour (green, red, grey); unfilled slots show as Trough. A 3px Respiratory Red underline marks readings where the alert was on. Always followed by a legend with swatches and words.
+Sixty equal ticks, 2px apart, 36px tall, one per reading, filled with the class colour (green, red, grey); unfilled slots show as Trough. Always followed by a legend with swatches and words.
 
 ### Confidence Bars
 A three-column row: class name, a 10px fully rounded Trough track with a class-coloured fill, and a right-aligned Geist Mono percentage. The Unhealthy bar carries a 1px ink tick (50% opacity) at the alert threshold.

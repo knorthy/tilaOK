@@ -13,7 +13,6 @@ export const CLASS_NAMES: Record<ClassKey, string> = {
 export type Reading = {
   top: ClassKey; // the class with the highest score
   hit: boolean; // Unhealthy score was above the threshold
-  alert: boolean; // the 3-of-5 alert rule was on at this reading
 };
 
 export type LogEntry = {
