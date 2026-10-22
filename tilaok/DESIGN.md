@@ -200,9 +200,11 @@ Dark mode is a token remap under `prefers-color-scheme: dark`, not a separate pa
 
 ## Layout
 
-A single centred column capped at 1200px with 16px side gutters (24px from 640px). The header carries the wordmark left and a muted one-line descriptor right, closed by a hairline. Below it: a controls row (mic select capped at 360px, then a 224px primary button on desktop; both full width and stacked on phones so the primary action sits in thumb reach), the full-width status band, then a two-column grid from 1024px (about 1.35fr : 1fr, top-aligned) holding Live confidence and the Event log, then the full-width session report, then a three-column footer from 768px.
+**One screen, no page scroll.** The page is exactly the viewport height (100dvh, capped at 1280px wide, 16px side gutters, 24px from 640px). The page never scrolls; panels scroll inside themselves. Windows shorter than 560px fall back to normal page scroll so nothing is cut off.
 
-Vertical rhythm between blocks is 24px. Panels pad 20px; panel heads are 14px by 20px. The status band pads 24px by 20px on phones and 32px on desktop, laying out stats to the right from 640px. Report stats are a 2-up grid on phones and 4-up from 640px, divided by hairlines. Controls are 44px tall.
+Top to bottom: a top bar (wordmark plus a muted descriptor on the left from 768px; a 300px mic select and a 208px primary button on the right, sharing one row on phones too, with the button label shortened to "Start / Stop / New"), the full-width status band, then the work area filling the remaining height. From 1024px the work area is three equal columns: Live confidence, Session report and Event log. Below 1024px the same three panels sit behind a Live / Report / Log tab bar and only the active one shows. Stopping a session switches to Report.
+
+Vertical rhythm between blocks is 16px (12px on phones). Panels pad 20px; panel heads are 14px by 20px. The status band pads 16px on phones and 20px by 28px on desktop. Report stats are a 2-up grid divided by hairlines. Controls are 44px tall. "How it works / what it can and can't do" lives behind the chicken button, not on the page.
 
 ## Elevation & Depth
 
@@ -238,7 +240,11 @@ Plain and decisive; one primary per surface.
 - **Internal Padding:** 20px; head row 14px by 20px with a Title on the left and a muted Label note on the right.
 
 ### Navigation
-None. The header is a wordmark and a descriptor; the page is a single surface.
+- **Panel tabs (below 1024px only):** a segmented control in a Paper track with a Hairline border, 4px inset, three equal 36px tabs at 14px/500. The active tab is filled Barn Ink with Daylight Ground text; inactive tabs are muted, inking on hover. Built as role="tablist" with tabpanels.
+
+### Chicken Button and About Panel
+- **Button:** fixed 16px from the bottom-right corner, 56px circle, Paper fill, Hairline border, 30px hen icon in the same 1.75px outline set. Hover fills Trough. It toggles the panel (aria-expanded).
+- **Panel:** fixed above the button, up to 400px wide, 12px corners, Paper with a Hairline border (flat, like every surface), scrolling inside itself. Sections divided by Hairlines: How it works, What it can do (green dots), What it can't do (red dots), and the dataset credit at 12px. It closes on Escape, a click outside or the close button. It opens once with a 220ms rise-and-fade from its bottom-right corner, with no animation under reduced motion.
 
 ### Status Band (signature)
 The answer to "is the flock OK?". Full width, 12px corners, the tone's wash and line, a 26px tone icon, the Display status line in the tone's ink, a muted detail sentence, and Numeral stats (timer, unhealthy sounds in the last hour) aligned right. After Stop it carries the session verdict. The idle tone is plain Paper with ink text.
@@ -250,7 +256,7 @@ Sixty equal ticks, 2px apart, 36px tall, one per reading, filled with the class 
 A three-column row: class name, a 10px fully rounded Trough track with a class-coloured fill, and a right-aligned Geist Mono percentage. The Unhealthy bar carries a 1px ink tick (50% opacity) at the alert threshold.
 
 ### Event Log
-Newest-first list inside a panel, capped at 22rem and scrolling with a thin Hairline scrollbar. Each row: Geist Mono timestamp, a 6px state dot, the event text; alert rows set the text in Respiratory Red at 500. Rows are divided by Hairlines.
+Newest-first list that fills its panel and scrolls inside it with a thin Hairline scrollbar, with 64px of end padding so the chicken button never covers the last row. Each row: Geist Mono timestamp, a 6px state dot, the event text; alert rows set the text in Respiratory Red at 500. Rows are divided by Hairlines.
 
 ## Do's and Don'ts
 

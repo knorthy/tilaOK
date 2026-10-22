@@ -173,3 +173,28 @@ a {
   .rec-dot { animation: none; }
   .status-band, .report-verdict, .bar-fill { transition: none; }
 }
+
+/* One-screen page: no page scroll (panels scroll inside themselves).
+   Very short windows still scroll so nothing gets cut off. */
+@media (min-height: 560px) {
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+/* Chicken panel opens from the button's corner (flat, like every surface: hairline, no shadow) */
+.about-pop {
+  transform-origin: bottom right;
+  animation: about-in 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes about-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-pop { animation: none; }
+}

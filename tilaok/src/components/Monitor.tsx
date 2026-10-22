@@ -44,6 +44,12 @@ function demoScores(mode: "healthy" | "alert", n: number): Float32Array {
 }
 
 type Phase = "idle" | "loading" | "listening" | "stopped" | "error";
+type Tab = "live" | "report" | "log";
+const TABS: { id: Tab; label: string }[] = [
+  { id: "live", label: "Live" },
+  { id: "report", label: "Report" },
+  { id: "log", label: "Log" },
+];
 type Scores = Record<ClassKey, number>;
 
 // Map the model's label strings to our keys. "Healthy " has a trailing space,
@@ -62,6 +68,7 @@ export default function Monitor() {
   const [mics, setMics] = useState<MediaDeviceInfo[]>([]);
   const [micId, setMicId] = useState("");
   const [threshold, setThreshold] = useState(0.7);
+  const [tab, setTab] = useState<Tab>("live"); // which panel shows on small screens
 
   // A snapshot of the refs below, copied into state every UI_REFRESH_MS.
   const [view, setView] = useState<{
@@ -239,6 +246,7 @@ export default function Monitor() {
 
       await startListening(micId);
       setPhase("listening");
+      setTab("live");
       loadMics(); // permission is granted now, so real mic names are available
       refreshView();
     } catch (e) {
@@ -258,6 +266,7 @@ export default function Monitor() {
     scoresRef.current = { noise: 0, healthy: 0, unhealthy: 0 }; // live bars only show while listening
     addLog("stop", "Stopped listening");
     setPhase("stopped");
+    setTab("report"); // on phones, jump straight to the result
     refreshView();
   };
 
@@ -297,127 +306,162 @@ export default function Monitor() {
   const lastHourLabel = "Unhealthy sounds, last hour";
 
   return (
-    <div className="flex flex-col gap-6">
-      {/* Controls */}
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-end">
-        <label className="flex min-w-0 flex-1 flex-col gap-1.5 sm:max-w-[360px]">
-          <span className="text-sm text-muted">Microphone</span>
-          <select
-            value={micId}
-            onChange={(e) => changeMic(e.target.value)}
+    <div className="flex h-full min-h-0 flex-col gap-3 py-3 sm:gap-4 sm:py-5">
+      {/* Top bar: wordmark + controls */}
+      <header className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+        <div className="flex items-baseline gap-4">
+          <h1 className="text-2xl font-semibold tracking-[-0.03em]">
+            tila<span className="text-healthy">OK</span>
+          </h1>
+          <p className="hidden text-sm text-muted md:block">Listens to your flock and flags respiratory sounds early.</p>
+        </div>
+        <div className="flex gap-2 sm:gap-3">
+          <label className="min-w-0 flex-1 sm:w-[300px] sm:flex-none">
+            <span className="sr-only">Microphone</span>
+            <select
+              value={micId}
+              onChange={(e) => changeMic(e.target.value)}
+              disabled={busy}
+              className="field h-11 w-full min-w-0 truncate rounded-md border border-line bg-surface px-3 text-[15px] disabled:opacity-60"
+            >
+              <option value="">Default microphone</option>
+              {mics.map((m, i) => (
+                <option key={m.deviceId} value={m.deviceId}>
+                  {m.label || `Microphone ${i + 1}`}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button
+            type="button"
+            onClick={listening ? stop : start}
             disabled={busy}
-            className="field h-11 w-full min-w-0 truncate rounded-md border border-line bg-surface px-3 text-[15px] disabled:opacity-60"
+            aria-busy={busy}
+            className={
+              listening
+                ? "inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-md border border-line bg-surface px-4 font-medium text-fg transition-colors hover:bg-subtle sm:w-52"
+                : "inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-md bg-fg px-4 font-medium text-bg transition-opacity hover:opacity-85 disabled:opacity-60 sm:w-52"
+            }
           >
-            <option value="">Default microphone</option>
-            {mics.map((m, i) => (
-              <option key={m.deviceId} value={m.deviceId}>
-                {m.label || `Microphone ${i + 1}`}
-              </option>
-            ))}
-          </select>
-        </label>
-        <button
-          type="button"
-          onClick={listening ? stop : start}
-          disabled={busy}
-          aria-busy={busy}
-          className={
-            listening
-              ? "inline-flex h-11 items-center justify-center gap-2 rounded-md border border-line bg-surface px-5 font-medium text-fg transition-colors hover:bg-subtle sm:w-56"
-              : "inline-flex h-11 items-center justify-center gap-2 rounded-md bg-fg px-5 font-medium text-bg transition-opacity hover:opacity-85 disabled:opacity-60 sm:w-56"
-          }
-        >
-          {listening ? (
-            <>
-              <span className="rec-dot size-2.5 rounded-full bg-fg" aria-hidden />
-              Stop listening
-            </>
-          ) : busy ? (
-            "Loading model…"
-          ) : (
-            <>
-              <IconMic />
-              {phase === "stopped" ? "Start a new session" : "Start listening"}
-            </>
-          )}
-        </button>
-      </div>
+            {listening ? (
+              <>
+                <span className="rec-dot size-2.5 rounded-full bg-fg" aria-hidden />
+                <span>Stop<span className="hidden sm:inline"> listening</span></span>
+              </>
+            ) : busy ? (
+              "Loading…"
+            ) : (
+              <>
+                <IconMic />
+                {phase === "stopped" ? (
+                  <span>New<span className="hidden sm:inline"> session</span></span>
+                ) : (
+                  <span>Start<span className="hidden sm:inline"> listening</span></span>
+                )}
+              </>
+            )}
+          </button>
+        </div>
+      </header>
 
       {/* Status band */}
       <section
         aria-live="polite"
-        className={`status-band flex flex-col gap-4 rounded-xl border px-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:py-8 tone-${status.tone}`}
+        className={`status-band flex shrink-0 flex-col gap-3 rounded-xl border px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-7 sm:py-5 tone-${status.tone}`}
       >
-        <div className="flex items-start gap-4">
+        <div className="flex items-start gap-3 sm:gap-4">
           <span className="mt-1 shrink-0 tone-ink">
             <StatusIcon tone={status.tone} />
           </span>
           <div>
-            <h2 className="text-balance text-[clamp(1.75rem,4.5vw,2.75rem)] font-semibold leading-tight tracking-[-0.03em] tone-ink">
+            <h2 className="text-balance text-[clamp(1.5rem,3.4vw,2.5rem)] font-semibold leading-tight tracking-[-0.03em] tone-ink">
               {status.title}
             </h2>
-            <p className="mt-1.5 max-w-[60ch] text-[15px] text-muted sm:text-base">{status.detail}</p>
+            <p className="mt-1 max-w-[60ch] text-sm text-muted sm:text-[15px]">{status.detail}</p>
           </div>
         </div>
         {view.session && (
-          <div className="flex shrink-0 gap-6 sm:text-right">
+          <div className="flex shrink-0 gap-6 pl-9 sm:pl-0 sm:text-right">
             <Stat label={listening ? "Listening for" : "Session length"} value={formatDuration((view.session.stoppedAt ?? view.now) - view.session.startedAt)} />
             <Stat label={lastHourLabel} value={String(view.lastHour)} />
           </div>
         )}
       </section>
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:items-start">
+      {/* Below lg the three panels share the space as tabs, so the page never scrolls */}
+      <div role="tablist" aria-label="Panels" className="grid shrink-0 grid-cols-3 gap-1 rounded-lg border border-line bg-surface p-1 lg:hidden">
+        {TABS.map((t) => (
+          <button
+            key={t.id}
+            type="button"
+            role="tab"
+            id={`tab-${t.id}`}
+            aria-selected={tab === t.id}
+            aria-controls={`panel-${t.id}`}
+            onClick={() => setTab(t.id)}
+            className={`h-9 rounded-md text-sm font-medium transition-colors ${tab === t.id ? "bg-fg text-bg" : "text-muted hover:text-fg"}`}
+          >
+            {t.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="grid min-h-0 flex-1 gap-4 lg:grid-cols-3">
         {/* Live confidence */}
-        <section className="panel">
-          <PanelHead title="Live confidence" note={listening ? "Updates several times a second" : "Shows while listening"} />
-          <div className="flex flex-col gap-4 p-5">
-            {(["unhealthy", "healthy", "noise"] as ClassKey[]).map((key) => (
-              <ConfidenceBar key={key} cls={key} value={view.scores[key]} threshold={key === "unhealthy" ? threshold : undefined} />
-            ))}
-          </div>
-          <div className="border-t border-line p-5">
-            <label htmlFor="threshold" className="flex items-baseline justify-between gap-4 text-sm">
-              <span className="font-medium">Alert threshold</span>
-              <span className="font-mono tabular-nums">{percent(threshold)}</span>
-            </label>
-            <input
-              id="threshold"
-              type="range"
-              min={0.5}
-              max={0.95}
-              step={0.05}
-              value={threshold}
-              onChange={(e) => setThreshold(Number(e.target.value))}
-              className="range mt-3 w-full"
-            />
-            <p className="mt-2 text-xs leading-relaxed text-muted">
-              Alerts when Unhealthy is above {percent(threshold)} in {WINDOW_HITS} of the last {WINDOW_SIZE} readings, so one stray noise won&apos;t set it off.
-            </p>
-          </div>
-          <div className="border-t border-line p-5">
-            <div className="mb-3 flex items-baseline justify-between gap-4">
-              <h3 className="text-sm font-medium">Last {HISTORY_SIZE} readings</h3>
-              <span className="text-xs text-muted">older → newer</span>
+        <section id="panel-live" role="tabpanel" aria-labelledby="tab-live" className={`panel min-h-0 flex-col ${tab === "live" ? "flex" : "hidden lg:flex"}`}>
+          <PanelHead title="Live confidence" note={listening ? "Several times a second" : "Shows while listening"} />
+          <div className="min-h-0 flex-1 overflow-y-auto">
+            <div className="flex flex-col gap-4 p-5">
+              {(["unhealthy", "healthy", "noise"] as ClassKey[]).map((key) => (
+                <ConfidenceBar key={key} cls={key} value={view.scores[key]} threshold={key === "unhealthy" ? threshold : undefined} />
+              ))}
             </div>
-            <HistoryStrip history={view.history} />
-            <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
-              <li className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-healthy" aria-hidden />Healthy</li>
-              <li className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-alert" aria-hidden />Unhealthy</li>
-              <li className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-noise" aria-hidden />Background</li>
-              <li className="flex items-center gap-1.5"><span className="h-0.5 w-3 bg-alert" aria-hidden />Alert on</li>
-            </ul>
+            <div className="border-t border-line p-5">
+              <label htmlFor="threshold" className="flex items-baseline justify-between gap-4 text-sm">
+                <span className="font-medium">Alert threshold</span>
+                <span className="font-mono tabular-nums">{percent(threshold)}</span>
+              </label>
+              <input
+                id="threshold"
+                type="range"
+                min={0.5}
+                max={0.95}
+                step={0.05}
+                value={threshold}
+                onChange={(e) => setThreshold(Number(e.target.value))}
+                className="range mt-3 w-full"
+              />
+              <p className="mt-2 text-xs leading-relaxed text-muted">
+                Alerts when Unhealthy is above {percent(threshold)} in {WINDOW_HITS} of the last {WINDOW_SIZE} readings, so one stray noise won&apos;t set it off.
+              </p>
+            </div>
+            <div className="border-t border-line p-5">
+              <div className="mb-3 flex items-baseline justify-between gap-4">
+                <h3 className="text-sm font-medium">Last {HISTORY_SIZE} readings</h3>
+                <span className="text-xs text-muted">older → newer</span>
+              </div>
+              <HistoryStrip history={view.history} />
+              <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
+                <li className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-healthy" aria-hidden />Healthy</li>
+                <li className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-alert" aria-hidden />Unhealthy</li>
+                <li className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-noise" aria-hidden />Background noise</li>
+                <li className="flex items-center gap-1.5"><span className="h-0.5 w-3 bg-alert" aria-hidden />Alert on</li>
+              </ul>
+            </div>
           </div>
         </section>
 
+        {/* Session report */}
+        <section id="panel-report" role="tabpanel" aria-labelledby="tab-report" className={`panel min-h-0 flex-col ${tab === "report" ? "flex" : "hidden lg:flex"}`}>
+          <SessionReport session={view.session} live={listening} now={view.now} threshold={threshold} />
+        </section>
+
         {/* Event log */}
-        <section className="panel flex flex-col">
+        <section id="panel-log" role="tabpanel" aria-labelledby="tab-log" className={`panel min-h-0 flex-col ${tab === "log" ? "flex" : "hidden lg:flex"}`}>
           <PanelHead title="Event log" note="Newest first" />
           <EventLog log={view.log} />
         </section>
       </div>
-
-      <SessionReport session={view.session} live={listening} now={view.now} threshold={threshold} />
     </div>
   );
 }
@@ -434,7 +478,7 @@ function statusFor(phase: Phase, view: { history: Reading[]; alertOn: boolean; s
     const s = view.session;
     if (!s || !s.total) return { tone: "idle" as Tone, title: "Stopped", detail: "No readings were taken. Press Start to listen again." };
     const v = verdictFor(s);
-    return { tone: v.tone as Tone, title: v.title, detail: `Session ended after ${formatDuration((s.stoppedAt ?? s.startedAt) - s.startedAt)}. The full report is below.` };
+    return { tone: v.tone as Tone, title: v.title, detail: `Session ended after ${formatDuration((s.stoppedAt ?? s.startedAt) - s.startedAt)}. See the session report for details.` };
   }
   if (phase === "idle") return { tone: "idle" as Tone, title: "Not listening", detail: "Place the device near the flock, pick a microphone, and press Start listening." };
 
@@ -537,7 +581,7 @@ function EventLog({ log }: { log: LogEntry[] }) {
     return <p className="p-5 text-sm text-muted">Nothing yet. Events show up here once you start listening.</p>;
   }
   return (
-    <ol className="max-h-[22rem] flex-1 overflow-y-auto">
+    <ol className="min-h-0 flex-1 overflow-y-auto pb-16">
       {log.map((e) => (
         <li key={e.id} className="flex items-baseline gap-3 border-b border-line px-5 py-2.5 text-sm last:border-b-0">
           <time className="w-[4.75rem] shrink-0 font-mono text-xs tabular-nums text-muted">{formatClock(e.at)}</time>
@@ -552,10 +596,10 @@ function EventLog({ log }: { log: LogEntry[] }) {
 function SessionReport({ session, live, now, threshold }: { session: Session | null; live: boolean; now: number; threshold: number }) {
   if (!session) {
     return (
-      <section className="panel">
+      <>
         <PanelHead title="Session report" />
         <p className="p-5 text-sm text-muted">No session yet. When you stop listening, a summary of what tilaOK heard appears here.</p>
-      </section>
+      </>
     );
   }
 
@@ -564,28 +608,29 @@ function SessionReport({ session, live, now, threshold }: { session: Session | n
   const classes: ClassKey[] = ["healthy", "unhealthy", "noise"];
 
   return (
-    <section className="panel" aria-labelledby="report-title">
+    <>
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-line px-5 py-3.5">
-        <h2 id="report-title" className="text-[15px] font-semibold">Session report</h2>
+        <h2 className="text-[15px] font-semibold">Session report</h2>
         <span className="text-xs text-muted">
           {formatClock(session.startedAt, true)} – {session.stoppedAt ? formatClock(session.stoppedAt, true) : "now"}
-          {live && " · updating live, final when you stop"}
+          {live && " · live"}
         </span>
       </div>
+      <div className="min-h-0 flex-1 overflow-y-auto">
 
-      <div className={`flex items-start gap-3 border-b border-line px-5 py-6 tone-${verdict.tone} report-verdict`}>
+      <div className={`flex items-start gap-3 border-b border-line px-5 py-5 tone-${verdict.tone} report-verdict`}>
         <span className="mt-1 shrink-0 tone-ink">
           <StatusIcon tone={verdict.tone} />
         </span>
         <div>
-          <h3 className="text-2xl font-semibold tracking-[-0.02em] tone-ink">{session.total ? verdict.title : "No readings yet"}</h3>
+          <h3 className="text-xl font-semibold leading-snug tracking-[-0.02em] tone-ink">{session.total ? verdict.title : "No readings yet"}</h3>
           <p className="mt-1 max-w-[70ch] text-sm leading-relaxed text-muted">
             {session.total ? verdict.advice : "The model needs a second or two of audio before it reports anything."}
           </p>
         </div>
       </div>
 
-      <dl className="grid grid-cols-2 border-b border-line sm:grid-cols-4">
+      <dl className="grid grid-cols-2 border-b border-line">
         <ReportStat label="Duration" value={formatDuration(end - session.startedAt)} />
         <ReportStat label="Readings" value={String(session.total)} />
         <ReportStat label="Alerts" value={String(session.alerts)} accent={session.alerts > 0} />
@@ -604,7 +649,7 @@ function SessionReport({ session, live, now, threshold }: { session: Session | n
             <span key={key} className={`h-full ${BAR_COLOR[key]}`} style={{ width: `${share(session, key) * 100}%` }} />
           ))}
         </div>
-        <table className="mt-3 w-full max-w-md text-sm">
+        <table className="mt-3 w-full text-sm">
           <tbody>
             {classes.map((key) => (
               <tr key={key}>
@@ -625,13 +670,14 @@ function SessionReport({ session, live, now, threshold }: { session: Session | n
           {session.detections === 1 ? "sound" : "sounds"} crossed the {percent(threshold)} threshold and went in the log. Each reading judges about 1 second of audio.
         </p>
       </div>
-    </section>
+      </div>
+    </>
   );
 }
 
 function ReportStat({ label, value, sub, accent }: { label: string; value: string; sub?: string; accent?: boolean }) {
   return (
-    <div className="border-line px-5 py-4 [&:not(:last-child)]:border-r max-sm:[&:nth-child(2)]:border-r-0 max-sm:[&:nth-child(-n+2)]:border-b">
+    <div className="border-line px-5 py-3.5 odd:border-r [&:nth-child(-n+2)]:border-b">
       <dt className="text-xs text-muted">{label}</dt>
       <dd className={`mt-1 font-mono text-2xl font-medium tabular-nums tracking-tight ${accent ? "text-alert" : ""}`}>{value}</dd>
       {sub && <dd className="text-xs text-muted">{sub}</dd>}
