@@ -128,22 +128,16 @@ function Item({ tone, children }: { tone: "healthy" | "alert"; children: React.R
   );
 }
 
-// A hen facing left, drawn in the same 1.75px outline style as the other icons
+// The tilaOK hen mark, redrawn as SVG from tilaOK.png. It fills with the
+// text colour, so it is dark ink in light mode and light ink in dark mode.
 function IconChicken() {
   return (
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      {/* comb */}
-      <path d="M6.6 4.6c-.2-1 .5-1.8 1.4-1.6.4-.9 1.7-.9 2 0 .9-.2 1.5.7 1.1 1.5" />
-      {/* head, neck and body in one line */}
-      <path d="M10.9 5.2A3 3 0 0 0 5.4 7.4c0 1.3.6 2.2 1.3 3-.2 1-.3 2 0 3 .8 3 3.4 4.9 6.6 4.9 3.7 0 6.6-2.7 6.6-6.3 0-1.1-.2-2.2-.7-3.1l1.3-2.6c-1.6.2-3 .9-3.9 2-1.2-.6-2.6-.9-4-.7-.9.1-1.5-.1-1.8-.6" />
-      {/* beak */}
-      <path d="M5.4 7l-2 .7 2 .8" />
-      {/* wing */}
-      <path d="M10.8 12.2c1.1 1.6 3.4 2.2 5.4 1.1" />
-      {/* legs */}
-      <path d="M11.5 18.2v2.6m-1.3 0h2.6M15 18v2.8m-1.3 0h2.6" />
-      {/* eye */}
-      <circle cx="7.9" cy="6.9" r=".45" fill="currentColor" stroke="none" />
+    <svg width="32" height="32" viewBox="0 0 256 256" aria-hidden>
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        d="M124 42C108 62 104 108 126 132C146 152 182 146 192 112C198 86 194 58 182 36A107 107 0 1 1 70 50L76 34L82 14L92 28L100 10L110 26L118 14L120 30L140 22ZM102 41a5.5 5.5 0 1 0 0.01 0Z"
+      />
     </svg>
   );
 }

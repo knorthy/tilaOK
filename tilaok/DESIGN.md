@@ -1,6 +1,6 @@
 ---
 name: tilaOK
-description: Flock sound monitor. A crisp, neutral dashboard where only the flock's state carries colour.
+description: Poultry Respiratory Sound Monitor. A crisp, neutral dashboard where only the flock's state carries colour.
 colors:
   bg: "#fafafa"
   surface: "#ffffff"
@@ -243,7 +243,7 @@ Plain and decisive; one primary per surface.
 - **Panel tabs (below 1024px only):** a segmented control in a Paper track with a Hairline border, 4px inset, three equal 36px tabs at 14px/500. The active tab is filled Barn Ink with Daylight Ground text; inactive tabs are muted, inking on hover. Built as role="tablist" with tabpanels.
 
 ### Chicken Button and About Panel
-- **Button:** fixed 16px from the bottom-right corner, 56px circle, Paper fill, Hairline border, 30px hen icon in the same 1.75px outline set. Hover fills Trough. It toggles the panel (aria-expanded).
+- **Button:** fixed 16px from the bottom-right corner, 56px circle, Paper fill, Hairline border, holding the tilaOK hen mark at 32px, an inline SVG redrawn from tilaOK.png that fills with the ink colour in light and dark. Hover fills Trough. It toggles the panel (aria-expanded).
 - **Panel:** fixed above the button, up to 400px wide, 12px corners, Paper with a Hairline border (flat, like every surface), scrolling inside itself. Sections divided by Hairlines: How it works, What it can do (green dots), What it can't do (red dots), and the dataset credit at 12px. It closes on Escape, a click outside or the close button. It opens once with a 220ms rise-and-fade from its bottom-right corner, with no animation under reduced motion.
 
 ### Status Band (signature)

@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "tilaOK – Flock sound monitor",
+  title: "tilaOK – Poultry Respiratory Sound Monitor",
   description: "Listens to your flock and flags respiratory sounds (coughing, snoring, rales) so you can act early.",
 };
 
