@@ -1,0 +1,59 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1440px;height:900px;overflow:hidden;background:#cfc8bb;color:#2b2a27;font-family:Archivo,sans-serif;font-variant-numeric:tabular-nums}
+header{height:72px;display:flex;align-items:center;gap:24px;padding:0 48px;border-bottom:2px solid #2b2a27}
+.logo{font-weight:800;font-size:28px;letter-spacing:-.02em}.logo b{color:#5b3fa0}
+.sp{flex:1}
+select{font:inherit;font-size:15px;padding:10px 14px;border:2px solid #2b2a27;background:#f4efe6;border-radius:6px;width:300px}
+.btn{font-weight:700;font-size:16px;padding:12px 26px;border-radius:6px;background:#2b2a27;color:#f4efe6}
+main{display:grid;grid-template-columns:1fr 560px;gap:40px;padding:36px 48px}
+.k{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.stamp{margin-top:14px;display:inline-block;border:6px solid #c8342b;color:#c8342b;border-radius:14px;padding:10px 28px 6px;font-stretch:70%;font-weight:900;font-size:150px;line-height:1;letter-spacing:-.01em;transform:rotate(-2deg)}
+.why{margin-top:18px;font-size:20px;max-width:560px;line-height:1.4}
+.bars{margin-top:34px;display:grid;gap:14px;max-width:640px}
+.row{display:grid;grid-template-columns:170px 1fr 64px;align-items:center;gap:14px;font-size:17px;font-weight:600}
+.track{height:22px;background:#f4efe6;border-radius:4px;overflow:hidden}.track i{display:block;height:100%}
+.tray{background:#bdb5a6;border-radius:18px;padding:22px;display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.cup{aspect-ratio:1;border-radius:50%;background:#a89f8f;box-shadow:inset 0 6px 10px rgba(0,0,0,.18);display:grid;place-items:center}
+.cup span{width:66%;height:78%;border-radius:50% 50% 48% 48%/58% 58% 42% 42%}
+.h span{background:#f4efe6}.u span{background:#c8342b}.n span{background:#8c8577}
+.win{outline:3px dashed #2b2a27;outline-offset:4px}
+.cap{display:flex;justify-content:space-between;margin:12px 4px 0;font-size:14px}
+.log{margin-top:26px;border-top:2px solid #2b2a27}
+.log div{display:flex;gap:18px;padding:10px 0;border-bottom:1px solid #a89f8f;font-size:16px}
+.log time{width:80px;font-weight:700}
+.cnt{display:flex;gap:30px;margin-top:22px}.cnt b{display:block;font-size:46px;font-weight:800;font-stretch:80%}
+</style></head><body>
+<header><div class="logo">tila<b>OK</b></div><div class="sp"></div>
+<select><option>Microphone (Realtek Audio)</option></select><span class="btn">Stop listening</span></header>
+<main><section>
+<div class="k">Flock status · listening 04:12</div>
+<div class="stamp">CHECK FLOCK</div>
+<p class="why">Respiratory sounds in 4 of the last 5 seconds, above the 70% threshold. Walk the house and listen near the drinkers.</p>
+<div class="bars">
+<div class="row">Unhealthy<div class="track"><i style="width:88%;background:#c8342b"></i></div>88%</div>
+<div class="row">Healthy<div class="track"><i style="width:9%;background:#2f7d4f"></i></div>9%</div>
+<div class="row">Background noise<div class="track"><i style="width:3%;background:#8c8577"></i></div>3%</div>
+</div>
+<div class="cnt"><div><b>14</b>unhealthy in the last hour</div><div><b>3</b>alerts this session</div></div>
+</section>
+<aside>
+<div class="k">Last 30 seconds · one cup per reading</div>
+<div class="tray" style="margin-top:14px">
+<div class="cup h"><span></span></div><div class="cup h"><span></span></div><div class="cup n"><span></span></div><div class="cup h"><span></span></div><div class="cup h"><span></span></div><div class="cup h"><span></span></div>
+<div class="cup h"><span></span></div><div class="cup n"><span></span></div><div class="cup h"><span></span></div><div class="cup h"><span></span></div><div class="cup u"><span></span></div><div class="cup h"><span></span></div>
+<div class="cup h"><span></span></div><div class="cup h"><span></span></div><div class="cup h"><span></span></div><div class="cup n"><span></span></div><div class="cup h"><span></span></div><div class="cup h"><span></span></div>
+<div class="cup h"><span></span></div><div class="cup h"><span></span></div><div class="cup h"><span></span></div><div class="cup h"><span></span></div><div class="cup h"><span></span></div><div class="cup u"><span></span></div>
+<div class="cup h"><span></span></div><div class="cup u win"><span></span></div><div class="cup u win"><span></span></div><div class="cup h win"><span></span></div><div class="cup u win"><span></span></div><div class="cup u win"><span></span></div>
+</div>
+<div class="cap"><span>older</span><span>dashed = alert window (last 5)</span><span>newest</span></div>
+<div class="log">
+<div><time>9:42 PM</time>Unhealthy sound detected (91%)</div>
+<div><time>9:41 PM</time>Unhealthy sound detected (84%)</div>
+<div><time>9:38 PM</time>Flock sounds healthy</div>
+</div>
+</aside></main>
+</body></html>

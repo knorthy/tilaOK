@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1440px;height:900px;overflow:hidden;background:#f6f7f5;color:#14231a;font-family:system-ui,sans-serif}
+header{height:68px;background:#fff;border-bottom:1px solid #e2e5e0;display:flex;align-items:center;padding:0 40px;gap:20px}
+.logo{font-weight:800;font-size:22px}.logo b{color:#2f8f4e}.sp{flex:1}
+select{padding:9px;border:1px solid #cfd4cc;border-radius:8px;width:280px}
+.btn{background:#226b3a;color:#fff;padding:10px 22px;border-radius:8px;font-weight:600}
+main{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:28px 40px}
+.c{background:#fff;border:1px solid #e2e5e0;border-radius:12px;padding:22px}
+.s{grid-column:span 2;background:#fdecea;border-color:#f3b9b3}
+.s h2{font-size:40px;color:#d93b30}
+.row{display:grid;grid-template-columns:150px 1fr 50px;gap:10px;align-items:center;margin:12px 0}
+.t{height:12px;background:#eef0ec;border-radius:6px}.t i{display:block;height:100%;border-radius:6px}
+h3{font-size:15px;margin-bottom:12px;color:#46524b}
+</style></head><body>
+<header><div class="logo">tila<b>OK</b></div><div class="sp"></div><select><option>Microphone (Realtek Audio)</option></select><span class="btn">Stop listening</span></header>
+<main>
+<div class="c s"><h3>Status</h3><h2>Respiratory sounds detected</h2><p style="margin-top:8px">Unhealthy above 70% in 4 of the last 5 predictions.</p></div>
+<div class="c"><h3>Unhealthy in last hour</h3><div style="font-size:56px;font-weight:800">14</div></div>
+<div class="c" style="grid-column:span 2"><h3>Live confidence</h3>
+<div class="row">Unhealthy<div class="t"><i style="width:88%;background:#d93b30"></i></div>88%</div>
+<div class="row">Healthy<div class="t"><i style="width:9%;background:#2f8f4e"></i></div>9%</div>
+<div class="row">Background<div class="t"><i style="width:3%;background:#9aa39c"></i></div>3%</div></div>
+<div class="c"><h3>Event log</h3><p>9:42 PM – Unhealthy (91%)</p><p>9:41 PM – Unhealthy (84%)</p></div>
+<div class="c" style="grid-column:span 3"><h3>Session summary</h3><p>Duration 04:12 · Healthy 71% · Unhealthy 18% · Background 11% · 3 alerts</p></div>
+</main></body></html>

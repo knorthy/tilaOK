@@ -1,0 +1,102 @@
+{
+  "title": "Choose the look for tilaOK",
+  "question": "The roll picked the Egg Tray direction. Keep it, take the Kalendaryo pick or the plain standard, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "kind": "assigned",
+      "label": "Egg Tray",
+      "kicker": "THE ROLL",
+      "lineage": "30-cup molded-pulp egg trays and their ink grade stamps",
+      "thesis": "The flock's last 30 seconds sit in a 30-cup egg tray; each cup is one prediction.",
+      "palette": ["#cfc8bb", "#2b2a27", "#5b3fa0", "#c8342b", "#2f7d4f", "#f4efe6"],
+      "materials": ["flat molded-pulp grey", "violet grade-stamp ink", "red date-code ink"],
+      "viewport": "Top bar with mic picker and Start. Left: a huge stamped status word (tilaOK / CHECK FLOCK). Right: the 6x5 tray filling cup by cup, with the last 5 cups ringed as the alert window. Below: three confidence bars and the event log.",
+      "risk": "Pulp grey can turn dull if the stamp inks are applied timidly.",
+      "raised": [
+        {"from": "challenger-emigre", "raise": "One type family at every scale, with the status word set at poster size."},
+        {"from": "challenger-zoo", "raise": "Flat, unmodulated colour fields, with no fake pulp texture or grain."},
+        {"from": "challenger-ticket", "raise": "Nothing disappears, it gets stamped: alerts and the session report are stamped onto the record."},
+        {"from": "challenger-laban", "raise": "Length means exact duration: the session timeline bar is drawn to true time."},
+        {"from": "challenger-ikeda", "raise": "Tabular figures at data density for every number and timestamp."},
+        {"from": "challenger-goods", "raise": "Each class keeps fixed furniture: same name plate, colour and position everywhere."}
+      ],
+      "html": ".impeccable/mocks/decision/assigned.html"
+    },
+    {
+      "id": "model-pick",
+      "kind": "pick",
+      "label": "Kalendaryo",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "the feed-store wall calendar hanging in every farm house",
+      "thesis": "The session reads like a calendar page: big numerals, red marks on the bad moments.",
+      "palette": ["#ffffff", "#1d1d1b", "#d22630", "#1f5aa6", "#f2c230"],
+      "materials": ["newsprint white", "heavy condensed numerals", "red-day ink"],
+      "viewport": "Top bar with controls. A big numeral block (alerts this hour) beside the status. Session minutes laid out as a calendar grid, with red marks on alert minutes.",
+      "risk": "A familiar print grid. Many Filipino-themed pages reach for it.",
+      "html": ".impeccable/mocks/decision/model-pick.html"
+    },
+    {
+      "id": "challenger-emigre", "kind": "challenger", "catalogId": "emigre-bitmap-specimen",
+      "label": "Bitmap Specimen", "verdict": "declined", "lineage": "Emigre bitmap type specimens",
+      "thesis": "Pixel letterforms at poster scale.", "palette": ["#ffffff", "#111111", "#ff3b00"],
+      "materials": ["newsprint", "dot-matrix"], "viewport": "Status in giant pixel type.",
+      "case": "Farmers don't recognise it, and pixel type hurts glanceable reading.", "risk": "Reads as a design-school exercise.",
+      "kept": "One face repeated at many sizes."
+    },
+    {
+      "id": "challenger-zoo", "kind": "challenger", "catalogId": "aww2-zoo-gardens-guide-map",
+      "label": "Zoo Guide Map", "verdict": "declined", "lineage": "illustrated park guide maps",
+      "thesis": "Areas as swelling lobes of flat colour.", "palette": ["#8ED462", "#F5F1E4", "#2C2E2A", "#FF705D"],
+      "materials": ["flat colour lobes"], "viewport": "Classes as land masses.",
+      "case": "Playful, but it hides the alert state.", "risk": "Too whimsical for a health alert.",
+      "kept": "Flat, unmodulated colour."
+    },
+    {
+      "id": "challenger-goods", "kind": "challenger", "catalogId": "pop-culture-shelf-character-goods-catalog",
+      "label": "Character Catalog", "verdict": "declined", "lineage": "mascot goods catalogs",
+      "thesis": "Each class as a mascot with a name plate.", "palette": ["#ffd6e0", "#cdeffd", "#ffffff"],
+      "materials": ["pastel grounds", "white keylines"], "viewport": "Three mascot cells.",
+      "case": "Trivialises a disease signal.", "risk": "Too cute.",
+      "kept": "Fixed furniture per class."
+    },
+    {
+      "id": "challenger-ticket", "kind": "challenger", "catalogId": "vernacular-ephemera-jet-age-ticket-wallet",
+      "label": "Ticket Wallet", "verdict": "declined", "lineage": "jet-age airline coupons",
+      "thesis": "The session as a stamped coupon.", "palette": ["#1b2a52", "#c8102e", "#ffffff", "#5b3f8c"],
+      "materials": ["coupon stock", "carbon numerals"], "viewport": "Session report as a ticket.",
+      "case": "The report idea is clear, but farmers don't identify with airline coupons.", "risk": "Costume of travel.",
+      "kept": "States stamp themselves; nothing disappears."
+    },
+    {
+      "id": "challenger-laban", "kind": "challenger", "catalogId": "notation-diagram-systems-labanotation",
+      "label": "Dance Score", "verdict": "declined", "lineage": "Labanotation",
+      "thesis": "Time flows up a centre staff.", "palette": ["#ffffff", "#000000", "#dddddd"],
+      "materials": ["score paper", "hatched blocks"], "viewport": "Classes as staff columns.",
+      "case": "Unreadable at a glance.", "risk": "Obscure.",
+      "kept": "Length is exact duration."
+    },
+    {
+      "id": "challenger-ikeda", "kind": "challenger", "catalogId": "ikeda-datamatics",
+      "label": "Datamatics", "verdict": "declined", "lineage": "Ryoji Ikeda data fields",
+      "thesis": "Barcode bars strobing in black and white.", "palette": ["#000000", "#ffffff"],
+      "materials": ["hairline bars", "monospace"], "viewport": "Spectrogram as a barcode wall.",
+      "case": "Cold and strobing, and it has no healthy/unhealthy language.", "risk": "Hostile in a barn.",
+      "kept": "Tabular numerals at density."
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": false},
+  "canon": true,
+  "canonCard": {
+    "kind": "canon",
+    "label": "The category standard",
+    "thesis": "A clean farm IoT dashboard: white cards, green accent, executed well.",
+    "palette": ["#ffffff", "#f6f7f5", "#14231a", "#2f8f4e", "#d93b30"],
+    "materials": ["card grid", "system sans"],
+    "viewport": "Header, a status card, confidence bars, a log card and a summary card in a tidy grid.",
+    "risk": "Looks like every other IoT demo.",
+    "html": ".impeccable/mocks/decision/canon.html"
+  },
+  "steer": true
+}

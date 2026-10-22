@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1440px;height:900px;overflow:hidden;background:#fff;color:#1d1d1b;font-family:Archivo,sans-serif;font-variant-numeric:tabular-nums}
+header{height:72px;display:flex;align-items:center;gap:24px;padding:0 48px;background:#1f5aa6;color:#fff}
+.logo{font-family:Anton;font-size:32px}.logo b{color:#f2c230;font-weight:400}
+.sp{flex:1}
+select{font:inherit;padding:10px;border:0;border-radius:4px;width:300px}
+.btn{font-weight:800;padding:12px 26px;border-radius:4px;background:#d22630}
+main{display:grid;grid-template-columns:420px 1fr;gap:48px;padding:36px 48px}
+.big{font-family:Anton;font-size:300px;line-height:.85;color:#d22630}
+.k{font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:14px}
+.st{margin-top:20px;font-family:Anton;font-size:56px;color:#d22630}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);border-top:4px solid #1d1d1b;border-left:1px solid #ccc}
+.cal div{height:96px;border-right:1px solid #ccc;border-bottom:1px solid #ccc;padding:8px;font-family:Anton;font-size:30px}
+.cal .r{color:#d22630;background:#fde8e8}
+.hd{display:flex;justify-content:space-between;align-items:end;margin-bottom:10px}
+.hd h2{font-family:Anton;font-size:44px}
+</style></head><body>
+<header><div class="logo">tila<b>OK</b></div><div class="sp"></div><select><option>Microphone (Realtek Audio)</option></select><span class="btn">Stop listening</span></header>
+<main><section><div class="k">Unhealthy · last hour</div><div class="big">14</div><div class="st">CHECK FLOCK</div><p style="font-size:19px;margin-top:10px">Respiratory sounds in 4 of the last 5 seconds.</p></section>
+<section><div class="hd"><h2>Session · minute by minute</h2><span class="k">red = alert minute</span></div>
+<div class="cal"><div>1</div><div>2</div><div>3</div><div class="r">4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div class="r">12</div><div class="r">13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div class="r">21</div></div>
+</section></main></body></html>

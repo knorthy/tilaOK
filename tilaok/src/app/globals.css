@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+/* Colour tokens. Light is the default (the page is read in a bright poultry house);
+   dark follows the system setting. */
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --subtle: #f0f0f0;
+  --line: #e4e4e4;
+  --fg: #0a0a0a;
+  --muted: #5e5e5e;
+
+  --healthy: #15803d;
+  --healthy-bg: #f0fdf4;
+  --healthy-line: #bbe5c8;
+  --alert: #c81e1e;
+  --alert-bg: #fef2f2;
+  --alert-line: #f5c2c2;
+  --warn: #9a5b06;
+  --warn-bg: #fffbeb;
+  --warn-line: #f1dca4;
+  --noise: #6b7280;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --subtle: #1f1f1f;
+    --line: #262626;
+    --fg: #ededed;
+    --muted: #a1a1a1;
+
+    --healthy: #4ade80;
+    --healthy-bg: #0b1a10;
+    --healthy-line: #1d4128;
+    --alert: #f87171;
+    --alert-bg: #1f0c0c;
+    --alert-line: #4a1c1c;
+    --warn: #fbbf24;
+    --warn-bg: #1c1505;
+    --warn-line: #463510;
+    --noise: #9ca3af;
+
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-healthy: var(--healthy);
+  --color-alert: var(--alert);
+  --color-warn: var(--warn);
+  --color-noise: var(--noise);
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--healthy) 28%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+a {
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+/* Panels: hairline border, no shadow */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Status colours. `tone-ink` picks up the colour of the nearest tone. */
+.tone-idle { --tone: var(--fg); --tone-bg: var(--surface); --tone-line: var(--line); }
+.tone-noise { --tone: var(--noise); --tone-bg: var(--surface); --tone-line: var(--line); }
+.tone-healthy { --tone: var(--healthy); --tone-bg: var(--healthy-bg); --tone-line: var(--healthy-line); }
+.tone-alert { --tone: var(--alert); --tone-bg: var(--alert-bg); --tone-line: var(--alert-line); }
+.tone-warn { --tone: var(--warn); --tone-bg: var(--warn-bg); --tone-line: var(--warn-line); }
+.tone-ink { color: var(--tone); }
+
+/* The status band changes colour once, smoothly, when the state flips. */
+.status-band,
+.report-verdict {
+  background: var(--tone-bg);
+  border-color: var(--tone-line);
+  transition: background-color 400ms cubic-bezier(0.16, 1, 0.3, 1), border-color 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bar-fill {
+  transition: width 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Recording dot on the Stop button */
+.rec-dot {
+  animation: rec 1.6s ease-in-out infinite;
+}
+@keyframes rec {
+  50% { opacity: 0.35; }
+}
+
+/* Select arrow */
+.field {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23888' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+/* Threshold slider */
+.range {
+  appearance: none;
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+}
+.range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--subtle);
+}
+.range::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--subtle);
+}
+.range::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -7px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--fg);
+}
+.range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--fg);
+}
+
+/* Thin scrollbar for the event log */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rec-dot { animation: none; }
+  .status-band, .report-verdict, .bar-fill { transition: none; }
+}

@@ -1,0 +1,495 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-22T14:22:36.022Z",
+  "title": "Design System: tilaOK",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Daylight Ground",
+        "canonical": "oklch(98.5% 0.000 89.9)",
+        "cssVar": "--bg",
+        "darkValue": "#0a0a0a",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#262626",
+          "#404040",
+          "#5e5e5e",
+          "#a1a1a1",
+          "#e4e4e4",
+          "#f0f0f0",
+          "#fafafa"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "cssVar": "--surface",
+        "darkValue": "#111111",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#262626",
+          "#404040",
+          "#5e5e5e",
+          "#a1a1a1",
+          "#e4e4e4",
+          "#f0f0f0",
+          "#fafafa"
+        ]
+      },
+      "subtle": {
+        "role": "neutral",
+        "displayName": "Trough",
+        "canonical": "oklch(95.5% 0.000 89.9)",
+        "cssVar": "--subtle",
+        "darkValue": "#1f1f1f",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#262626",
+          "#404040",
+          "#5e5e5e",
+          "#a1a1a1",
+          "#e4e4e4",
+          "#f0f0f0",
+          "#fafafa"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(91.9% 0.000 89.9)",
+        "cssVar": "--line",
+        "darkValue": "#262626",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#262626",
+          "#404040",
+          "#5e5e5e",
+          "#a1a1a1",
+          "#e4e4e4",
+          "#f0f0f0",
+          "#fafafa"
+        ]
+      },
+      "fg": {
+        "role": "primary",
+        "displayName": "Barn Ink",
+        "canonical": "oklch(14.5% 0.000 89.9)",
+        "cssVar": "--fg",
+        "darkValue": "#ededed",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#262626",
+          "#404040",
+          "#5e5e5e",
+          "#a1a1a1",
+          "#e4e4e4",
+          "#f0f0f0",
+          "#fafafa"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Field Grey",
+        "canonical": "oklch(48.2% 0.000 89.9)",
+        "cssVar": "--muted",
+        "darkValue": "#a1a1a1",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#262626",
+          "#404040",
+          "#5e5e5e",
+          "#a1a1a1",
+          "#e4e4e4",
+          "#f0f0f0",
+          "#fafafa"
+        ]
+      },
+      "healthy": {
+        "role": "secondary",
+        "displayName": "Flock Green",
+        "canonical": "oklch(52.7% 0.137 150.1)",
+        "cssVar": "--healthy",
+        "darkValue": "#4ade80",
+        "tonalRamp": [
+          "#001003",
+          "#022e11",
+          "#055023",
+          "#0e7536",
+          "#379954",
+          "#5ebd76",
+          "#83e299",
+          "#c8ffd2"
+        ]
+      },
+      "healthy-bg": {
+        "role": "secondary",
+        "displayName": "Flock Green Wash",
+        "canonical": "oklch(98.2% 0.018 155.8)",
+        "cssVar": "--healthy-bg",
+        "darkValue": "#0b1a10",
+        "tonalRamp": [
+          "#050d08",
+          "#1e2821",
+          "#3b453e",
+          "#59645d",
+          "#7a867e",
+          "#9da9a0",
+          "#c0cdc4",
+          "#e5f2e9"
+        ]
+      },
+      "healthy-line": {
+        "role": "secondary",
+        "displayName": "Flock Green Line",
+        "canonical": "oklch(88.4% 0.059 154.9)",
+        "cssVar": "--healthy-line",
+        "darkValue": "#1d4128",
+        "tonalRamp": [
+          "#001005",
+          "#062d18",
+          "#264b34",
+          "#456b52",
+          "#668d73",
+          "#88b095",
+          "#acd5b9",
+          "#d0fbdd"
+        ]
+      },
+      "alert": {
+        "role": "secondary",
+        "displayName": "Respiratory Red",
+        "canonical": "oklch(53.5% 0.203 27.6)",
+        "cssVar": "--alert",
+        "darkValue": "#f87171",
+        "tonalRamp": [
+          "#1e0001",
+          "#4c0304",
+          "#7f080b",
+          "#b51216",
+          "#e23d36",
+          "#fb7669",
+          "#feb3a9",
+          "#ffe9e5"
+        ]
+      },
+      "alert-bg": {
+        "role": "secondary",
+        "displayName": "Respiratory Red Wash",
+        "canonical": "oklch(97.1% 0.013 17.4)",
+        "cssVar": "--alert-bg",
+        "darkValue": "#1f0c0c",
+        "tonalRamp": [
+          "#100909",
+          "#2b2323",
+          "#493f3f",
+          "#685e5e",
+          "#8a7f7f",
+          "#ada2a2",
+          "#d1c6c6",
+          "#f7ebeb"
+        ]
+      },
+      "alert-line": {
+        "role": "secondary",
+        "displayName": "Respiratory Red Line",
+        "canonical": "oklch(85.9% 0.059 18.4)",
+        "cssVar": "--alert-line",
+        "darkValue": "#4a1c1c",
+        "tonalRamp": [
+          "#1e0003",
+          "#3d181a",
+          "#5d3536",
+          "#7f5454",
+          "#a37475",
+          "#c79797",
+          "#edbbbb",
+          "#ffe8e8"
+        ]
+      },
+      "warn": {
+        "role": "secondary",
+        "displayName": "Caution Amber",
+        "canonical": "oklch(53.1% 0.118 64.4)",
+        "cssVar": "--warn",
+        "darkValue": "#fbbf24",
+        "tonalRamp": [
+          "#150800",
+          "#381e02",
+          "#5f3705",
+          "#8a520c",
+          "#b2712a",
+          "#d89450",
+          "#ffb974",
+          "#ffebd8"
+        ]
+      },
+      "warn-bg": {
+        "role": "secondary",
+        "displayName": "Caution Amber Wash",
+        "canonical": "oklch(98.7% 0.021 95.3)",
+        "cssVar": "--warn-bg",
+        "darkValue": "#1c1505",
+        "tonalRamp": [
+          "#0e0b03",
+          "#282519",
+          "#454235",
+          "#656154",
+          "#868274",
+          "#a9a596",
+          "#cdc9ba",
+          "#f3efdf"
+        ]
+      },
+      "warn-line": {
+        "role": "secondary",
+        "displayName": "Caution Amber Line",
+        "canonical": "oklch(89.8% 0.076 89.9)",
+        "cssVar": "--warn-line",
+        "darkValue": "#463510",
+        "tonalRamp": [
+          "#100a00",
+          "#2f2301",
+          "#524003",
+          "#725f2a",
+          "#94804b",
+          "#b7a36d",
+          "#dcc890",
+          "#ffedc0"
+        ]
+      },
+      "noise": {
+        "role": "secondary",
+        "displayName": "Static Grey",
+        "canonical": "oklch(55.1% 0.023 264.4)",
+        "cssVar": "--noise",
+        "darkValue": "#9ca3af",
+        "tonalRamp": [
+          "#070b15",
+          "#1f2531",
+          "#3c424f",
+          "#5b616f",
+          "#7b8291",
+          "#9ea5b4",
+          "#c2c9d9",
+          "#e7efff"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The live status line only, in the tone's ink, balanced wrap."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Session verdict and the wordmark (wordmark at -0.03em)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Panel headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Rows, log entries, report text; status detail at 15-16px; prose at 1.625 line height, 60-70ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Muted notes, stat labels, legends, helper copy. Sentence case."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Timer, last-hour count and report stats; 1.875rem from 640px."
+      },
+      "mono-label": {
+        "displayName": "Mono label",
+        "purpose": "Log timestamps and per-class reading counts."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Status band and verdict colour flip (400ms) and confidence bar width (220ms)."
+      },
+      {
+        "name": "state-flip",
+        "value": "400ms",
+        "purpose": "Background and border transition on the status band and report verdict when the state changes."
+      },
+      {
+        "name": "bar-fill",
+        "value": "220ms",
+        "purpose": "Confidence bar width updates."
+      },
+      {
+        "name": "rec-pulse",
+        "value": "1.6s ease-in-out infinite, opacity 0.35 at midpoint",
+        "purpose": "Recording dot on the Stop button."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Disables the pulse and all transitions."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "container",
+        "value": "1200px"
+      }
+    ],
+    "focus": {
+      "value": "outline: 2px solid var(--fg); outline-offset: 2px; border-radius: 6px",
+      "purpose": "Global :focus-visible ring."
+    },
+    "darkMode": {
+      "trigger": "prefers-color-scheme: dark",
+      "note": "Token remap on :root; see colorMeta.*.darkValue."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single ink action per surface: Start listening.",
+      "html": "<button class=\"ds-btn-primary\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"9\" y=\"3\" width=\"6\" height=\"11\" rx=\"3\"/><path d=\"M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21\"/></svg>Start listening</button>",
+      "css": ".ds-btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:8px; height:44px; padding:0 20px; border:none; border-radius:6px; background:var(--fg); color:var(--bg); font-family: var(--font-geist-sans), system-ui, sans-serif; font-size:16px; font-weight:500; cursor:pointer; transition:opacity 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-primary:hover { opacity:0.85; } .ds-btn-primary:focus-visible { outline:2px solid var(--fg); outline-offset:2px; } .ds-btn-primary:disabled { opacity:0.6; cursor:default; }"
+    },
+    {
+      "name": "Secondary Button (Stop)",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Paper button with a pulsing recording dot, shown while listening.",
+      "html": "<button class=\"ds-btn-secondary\"><span class=\"ds-rec-dot\" aria-hidden=\"true\"></span>Stop listening</button>",
+      "css": ".ds-btn-secondary { display:inline-flex; align-items:center; justify-content:center; gap:8px; height:44px; padding:0 20px; border:1px solid var(--line); border-radius:6px; background:var(--surface); color:var(--fg); font-family: var(--font-geist-sans), system-ui, sans-serif; font-size:16px; font-weight:500; cursor:pointer; transition:background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-secondary:hover { background:var(--subtle); } .ds-btn-secondary:focus-visible { outline:2px solid var(--fg); outline-offset:2px; } .ds-rec-dot { width:10px; height:10px; border-radius:9999px; background:var(--fg); animation:ds-rec 1.6s ease-in-out infinite; } @keyframes ds-rec { 50% { opacity:0.35; } } @media (prefers-reduced-motion: reduce) { .ds-rec-dot { animation:none; } }"
+    },
+    {
+      "name": "Microphone Select",
+      "kind": "input",
+      "refersTo": "select-field",
+      "description": "Labelled native select with a drawn chevron.",
+      "html": "<label class=\"ds-field-wrap\"><span class=\"ds-field-label\">Microphone</span><select class=\"ds-select\"><option>Default microphone</option></select></label>",
+      "css": ".ds-field-wrap { display:flex; flex-direction:column; gap:6px; max-width:360px; font-family: var(--font-geist-sans), system-ui, sans-serif; } .ds-field-label { font-size:14px; color:var(--muted); } .ds-select { appearance:none; height:44px; padding:0 36px 0 12px; border:1px solid var(--line); border-radius:6px; background-color:var(--surface); color:var(--fg); font:inherit; font-size:15px; background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23888' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E\"); background-repeat:no-repeat; background-position:right 12px center; } .ds-select:focus-visible { outline:2px solid var(--fg); outline-offset:2px; }"
+    },
+    {
+      "name": "Threshold Slider",
+      "kind": "input",
+      "refersTo": "select-field",
+      "description": "Thin trough track, paper thumb with an ink ring, mono value.",
+      "html": "<div class=\"ds-range-wrap\"><label class=\"ds-range-head\"><span>Alert threshold</span><span class=\"ds-mono\">70%</span></label><input class=\"ds-range\" type=\"range\" min=\"0.5\" max=\"0.95\" step=\"0.05\" value=\"0.7\"></div>",
+      "css": ".ds-range-wrap { font-family: var(--font-geist-sans), system-ui, sans-serif; font-size:14px; color:var(--fg); max-width:420px; } .ds-range-head { display:flex; justify-content:space-between; font-weight:500; } .ds-mono { font-family: var(--font-geist-mono), ui-monospace, monospace; font-variant-numeric: tabular-nums; font-weight:400; } .ds-range { appearance:none; width:100%; height:20px; margin-top:12px; background:transparent; cursor:pointer; } .ds-range::-webkit-slider-runnable-track { height:4px; border-radius:9999px; background:var(--subtle); } .ds-range::-moz-range-track { height:4px; border-radius:9999px; background:var(--subtle); } .ds-range::-webkit-slider-thumb { appearance:none; width:18px; height:18px; margin-top:-7px; border-radius:50%; background:var(--surface); border:2px solid var(--fg); } .ds-range::-moz-range-thumb { width:14px; height:14px; border-radius:50%; background:var(--surface); border:2px solid var(--fg); } .ds-range:focus-visible { outline:2px solid var(--fg); outline-offset:2px; border-radius:6px; }"
+    },
+    {
+      "name": "Panel with Event Log",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Hairline Paper container with a title and muted note head; here holding log rows.",
+      "html": "<section class=\"ds-panel\"><div class=\"ds-panel-head\"><h2>Event log</h2><span>Newest first</span></div><ol class=\"ds-log\"><li><time>10:17 PM</time><span class=\"ds-dot\" style=\"background:var(--alert)\"></span><span class=\"ds-log-alert\">Alert: respiratory sounds in 3 of the last 5 seconds</span></li><li><time>10:17 PM</time><span class=\"ds-dot\" style=\"background:var(--alert)\"></span><span>Unhealthy sound detected (90%)</span></li><li><time>10:17 PM</time><span class=\"ds-dot\" style=\"background:var(--noise)\"></span><span>Started listening</span></li></ol></section>",
+      "css": ".ds-panel { background:var(--surface); border:1px solid var(--line); border-radius:12px; overflow:hidden; color:var(--fg); font-family: var(--font-geist-sans), system-ui, sans-serif; max-width:480px; } .ds-panel-head { display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding:14px 20px; border-bottom:1px solid var(--line); } .ds-panel-head h2 { margin:0; font-size:15px; font-weight:600; } .ds-panel-head span { font-size:12px; color:var(--muted); } .ds-log { list-style:none; margin:0; padding:0; } .ds-log li { display:flex; align-items:baseline; gap:12px; padding:10px 20px; font-size:14px; border-bottom:1px solid var(--line); } .ds-log li:last-child { border-bottom:0; } .ds-log time { width:4.75rem; flex-shrink:0; font-family: var(--font-geist-mono), ui-monospace, monospace; font-variant-numeric: tabular-nums; font-size:12px; color:var(--muted); } .ds-dot { width:6px; height:6px; flex-shrink:0; border-radius:9999px; transform:translateY(-1px); } .ds-log-alert { color:var(--alert); font-weight:500; }"
+    },
+    {
+      "name": "Status Band",
+      "kind": "custom",
+      "refersTo": "status-band-alert",
+      "description": "Signature: the full-width answer with tone wash, icon, display line and mono stats.",
+      "html": "<section class=\"ds-band ds-tone-alert\" aria-live=\"polite\"><div class=\"ds-band-main\"><span class=\"ds-ink\"><svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M10.3 3.9 2.6 17.5A2 2 0 0 0 4.3 20.5h15.4a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z\"/><path d=\"M12 9v4.5M12 17h.01\"/></svg></span><div><h2 class=\"ds-band-title ds-ink\">Respiratory sounds detected</h2><p class=\"ds-band-detail\">Coughing, snoring or rale sounds keep coming up. Check the flock.</p></div></div><div class=\"ds-band-stats\"><div><div class=\"ds-stat\">0:03</div><div class=\"ds-stat-label\">Listening for</div></div><div><div class=\"ds-stat\">1</div><div class=\"ds-stat-label\">Unhealthy sounds, last hour</div></div></div></section><section class=\"ds-band ds-tone-healthy\" style=\"margin-top:16px\"><div class=\"ds-band-main\"><span class=\"ds-ink\"><svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"m8 12.5 2.75 2.75L16 10\"/></svg></span><div><h2 class=\"ds-band-title ds-ink\">Flock sounds healthy</h2><p class=\"ds-band-detail\">Normal chicken sounds, with no respiratory symptoms heard.</p></div></div></section>",
+      "css": ".ds-band { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; padding:32px; border:1px solid var(--tone-line); border-radius:12px; background:var(--tone-bg); font-family: var(--font-geist-sans), system-ui, sans-serif; color:var(--fg); transition:background-color 400ms cubic-bezier(0.16,1,0.3,1), border-color 400ms cubic-bezier(0.16,1,0.3,1); } .ds-tone-alert { --tone:var(--alert); --tone-bg:var(--alert-bg); --tone-line:var(--alert-line); } .ds-tone-healthy { --tone:var(--healthy); --tone-bg:var(--healthy-bg); --tone-line:var(--healthy-line); } .ds-tone-warn { --tone:var(--warn); --tone-bg:var(--warn-bg); --tone-line:var(--warn-line); } .ds-ink { color:var(--tone); } .ds-band-main { display:flex; align-items:flex-start; gap:16px; } .ds-band-main > span { margin-top:4px; flex-shrink:0; } .ds-band-title { margin:0; font-size:clamp(1.75rem,4.5vw,2.75rem); font-weight:600; line-height:1.25; letter-spacing:-0.03em; text-wrap:balance; } .ds-band-detail { margin:6px 0 0; max-width:60ch; font-size:16px; color:var(--muted); } .ds-band-stats { display:flex; gap:24px; text-align:right; } .ds-stat { font-family: var(--font-geist-mono), ui-monospace, monospace; font-variant-numeric: tabular-nums; font-size:1.875rem; font-weight:500; letter-spacing:-0.025em; } .ds-stat-label { margin-top:2px; font-size:12px; color:var(--muted); } @media (prefers-reduced-motion: reduce) { .ds-band { transition:none; } }"
+    },
+    {
+      "name": "Confidence Bar",
+      "kind": "custom",
+      "refersTo": "confidence-track",
+      "description": "Class name, rounded trough with class fill and threshold tick, mono percent.",
+      "html": "<div class=\"ds-bars\"><div class=\"ds-bar-row\"><span>Unhealthy</span><div class=\"ds-track\" role=\"meter\" aria-valuenow=\"90\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-label=\"Unhealthy confidence\"><div class=\"ds-fill\" style=\"width:90%;background:var(--alert)\"></div><span class=\"ds-thresh\" style=\"left:70%\"></span></div><span class=\"ds-pct\">90%</span></div><div class=\"ds-bar-row\"><span>Healthy</span><div class=\"ds-track\"><div class=\"ds-fill\" style=\"width:6%;background:var(--healthy)\"></div></div><span class=\"ds-pct\">6%</span></div><div class=\"ds-bar-row\"><span>Background noise</span><div class=\"ds-track\"><div class=\"ds-fill\" style=\"width:4%;background:var(--noise)\"></div></div><span class=\"ds-pct\">4%</span></div></div>",
+      "css": ".ds-bars { display:flex; flex-direction:column; gap:16px; max-width:520px; font-family: var(--font-geist-sans), system-ui, sans-serif; font-size:14px; color:var(--fg); } .ds-bar-row { display:grid; grid-template-columns:8.5rem minmax(0,1fr) 3.25rem; align-items:center; gap:12px; } .ds-track { position:relative; height:10px; border-radius:9999px; background:var(--subtle); } .ds-fill { height:100%; border-radius:9999px; transition:width 220ms cubic-bezier(0.16,1,0.3,1); } .ds-thresh { position:absolute; top:-4px; bottom:-4px; width:1px; background:color-mix(in srgb, var(--fg) 50%, transparent); } .ds-pct { text-align:right; font-family: var(--font-geist-mono), ui-monospace, monospace; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "History Strip",
+      "kind": "custom",
+      "refersTo": "history-tick",
+      "description": "Signature: one tick per reading coloured by class, alert windows underlined, with a worded legend.",
+      "html": "<div class=\"ds-strip-wrap\"><div class=\"ds-strip\" role=\"img\" aria-label=\"Last 10 readings: 4 unhealthy\"><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--subtle)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--subtle)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--subtle)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--subtle)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--subtle)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--subtle)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--subtle)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--subtle)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--subtle)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--subtle)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--subtle)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--subtle)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--subtle)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--subtle)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--healthy)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--healthy)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--noise)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--healthy)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--alert)\"></span><span class=\"ds-tick-under\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--alert)\"></span><span class=\"ds-tick-under\" style=\"background:var(--alert)\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--alert)\"></span><span class=\"ds-tick-under\" style=\"background:var(--alert)\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--healthy)\"></span><span class=\"ds-tick-under\" style=\"background:var(--alert)\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--alert)\"></span><span class=\"ds-tick-under\" style=\"background:var(--alert)\"></span></span><span class=\"ds-tick\"><span class=\"ds-tick-fill\" style=\"background:var(--healthy)\"></span><span class=\"ds-tick-under\"></span></span></div><ul class=\"ds-legend\"><li><span style=\"background:var(--healthy)\"></span>Healthy</li><li><span style=\"background:var(--alert)\"></span>Unhealthy</li><li><span style=\"background:var(--noise)\"></span>Background noise</li><li><span class=\"ds-legend-line\"></span>Alert on</li></ul></div>",
+      "css": ".ds-strip-wrap { max-width:520px; font-family: var(--font-geist-sans), system-ui, sans-serif; } .ds-strip { display:flex; gap:2px; height:36px; } .ds-tick { flex:1; display:flex; flex-direction:column; gap:2px; } .ds-tick-fill { flex:1; border-radius:2px; } .ds-tick-under { height:3px; border-radius:1px; background:transparent; } .ds-legend { display:flex; flex-wrap:wrap; gap:4px 16px; margin:12px 0 0; padding:0; list-style:none; font-size:12px; color:var(--muted); } .ds-legend li { display:flex; align-items:center; gap:6px; } .ds-legend li span { width:8px; height:8px; border-radius:4px; } .ds-legend li span.ds-legend-line { width:12px; height:2px; border-radius:0; background:var(--alert); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Barn Wall Gauge",
+    "overview": "tilaOK is a single-question instrument: is the flock OK right now? The system is the category-standard dashboard played straight, held to the polish of Vercel and Linear. A near-white neutral ground, 1px hairlines, ink-black controls and Geist type do the structural work. Colour is withheld from chrome so that when it appears, it means something about the birds: green for healthy, red for respiratory sounds, amber for caution, cool grey for background noise.\n\nDensity is calm and generous at the top and tighter below. One large status line, readable from across a poultry house, sits in a full-width band. Supporting evidence (confidence bars, a 60-reading history strip, a timestamped log, the session report) lives in hairline panels underneath. Light is the default because the page is read in daylight on a propped phone; dark follows the system setting with the same roles remapped.\n\nThe world refuses decoration: no gradients, no glow, no drop shadows and no imitation IoT hardware chrome.",
+    "keyCharacteristics": [
+      "Neutral chrome; chroma reserved for flock state.",
+      "Every state is a word plus an icon plus a colour, never colour alone.",
+      "Geist for language, Geist Mono with tabular figures for every number and timestamp.",
+      "Flat surfaces with 1px hairline borders; depth by tonal fill, not shadow.",
+      "One motion moment: the status colour field changes once, smoothly, when the state flips."
+    ],
+    "rules": [
+      {
+        "name": "The State-Only Colour Rule",
+        "body": "Chroma belongs to the flock's state. Buttons, panels, borders and type stay neutral; the only exception is the \"OK\" in the wordmark, which is brand, in Flock Green.",
+        "section": "colors"
+      },
+      {
+        "name": "The Word-and-Icon Rule",
+        "body": "A state colour never appears without a word next to it. The status band and verdict pair each tone with a stroke icon and a sentence; bars, ticks and dots always come with a labelled legend or row text.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink, Wash, Line Rule",
+        "body": "Each state family has exactly three roles: ink for text and marks, wash for the band fill, line for the band border. Do not invent a fourth tint.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Figures Rule",
+        "body": "Every number that can change (percent, time, count) is set in Geist Mono with tabular figures so it never jitters.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Loud Line Rule",
+        "body": "Display size is reserved for the status answer. Nothing else on a surface competes with it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "Separation is a 1px Hairline border or divider, never a shadow. If a surface needs more presence, give it a state wash, not elevation.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Single Flip Rule",
+        "body": "The status band and verdict row change background and border once, over 400ms with an expo-out curve, when the state changes. Bars ease their width over 220ms. The Stop button's recording dot pulses. All of it switches off under reduced motion.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep chrome neutral and let state colour appear only where it reports the flock (The State-Only Colour Rule).",
+      "Do pair every state colour with a word and an icon or a labelled legend.",
+      "Do set every changing number in Geist Mono with tabular figures.",
+      "Do separate surfaces with 1px Hairline borders and 12px panel corners.",
+      "Do make the primary action an ink fill (6px corners, 44px tall), full width on phones.",
+      "Do change the status band's colour once per state change (400ms, expo-out) and drop all motion under reduced motion.",
+      "Do define every colour as a token with a light value and a dark remap."
+    ],
+    "donts": [
+      "Don't add drop shadows, gradients or glow; the world is flat by choice.",
+      "Don't use green, red or amber for buttons, borders or decoration.",
+      "Don't imitate IoT hardware chrome (LED panels, bezels, fake screens).",
+      "Don't show any state by colour alone.",
+      "Don't use display size for anything but the status answer."
+    ]
+  }
+}
